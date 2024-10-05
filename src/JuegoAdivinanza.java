@@ -8,30 +8,28 @@ public class JuegoAdivinanza {
 
         Scanner scanner = new Scanner(System.in);
         int intentos = 0;
+        //Pasamos el numero magico a una constante
+        final int MAX_INTENTOS = 10; 
 
+        System.out.println("Adivina el número entre 1 y 100. Tienes " + MAX_INTENTOS + " intentos.");
 
-        System.out.println("Adivina el número entre 1 y " + 100 + "Tienes 10 intentos");
-
-        while (intentos < 10) {
+        while (intentos < MAX_INTENTOS) {
             System.out.print("Intento " + (intentos + 1) + ": ");
             int adivinanza = scanner.nextInt();
             intentos++;
 
             if (adivinanza == numeroSecreto) {
                 System.out.println("¡Correcto! Lo adivinaste en " + intentos + " intentos.");
-                break;
+                return;
             } else if (adivinanza < numeroSecreto) {
-                System.out.println("El número es mayor.");
+                System.out.println("El número que has elegido es mayor.");
             } else {
-                System.out.println("El número es menor.");
-            }
-
-            if (intentos == 10) {
-                System.out.println("Se acabaron los intentos. El número era " + numeroSecreto);
-                System.out.println("El número secreto era: " + numeroSecreto);
+                System.out.println("El número que has elegido es menor.");
             }
         }
 
+        System.out.println("Vayaa,has llegado al numero maximo de intetos. El número era " + numeroSecreto + ".");
         scanner.close();
     }
 }
+
